@@ -21,4 +21,12 @@ If you discover a security vulnerability within Lumen, please send an e-mail to 
 
 ## License
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).composer require tymon/jwt-auth
+
+## JWT https://jwt-auth.readthedocs.io/en/develop/
+1. Install JWT library
+$composer require tymon/jwt-auth
+2. Create User model :  https://dev.to/ndiecodes/build-a-jwt-authenticated-api-with-lumen-2afm
+$php artisan make:migration create_users_table --create=users
+
+
