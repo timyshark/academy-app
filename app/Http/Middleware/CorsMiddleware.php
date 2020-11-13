@@ -3,7 +3,12 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+/*
+This class solves the problem of CORS (Cross-Origin Resource Sharing)
+which means, restricts requests from another domain outside the domain from which the first 
+resource was served, a web page may contain images, scripts, from different domains.
+the header should be sent along with each response.
+*/
 class CorsMiddleware
 {
     /**
