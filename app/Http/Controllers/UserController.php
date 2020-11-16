@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-
+use Illuminate\Support\Facades\Log;
 class UserController extends Controller
 {
     /**
@@ -23,6 +23,7 @@ class UserController extends Controller
     //
     public function index()
     {
+         Log::info('x');
         return User::all();
     }
  
