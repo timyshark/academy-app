@@ -30,3 +30,20 @@ $composer require tymon/jwt-auth
 $php artisan make:migration create_users_table --create=users
 
 
+## MySQL Driver
+1. Enable mysql driver in php.ini (OL8 /etc/php.ini, Win10 same folder extracted Ferrari : C:\Users\Tim\Documents\Projects\php); look for mysql extension "pdo_mysql" and uncomment; set extensions_dir = C:\...\php\ext
+2. php must install in non system folder, i.e. not under C:\Program Files <-- syslog won't work!!
+
+## Faker : https://github.com/fzaninotto/Faker#fakerprovideren_usperson
+$ composer require fzaninotto/faker
+
+
+## CORS solution
+Method is not allowed problem error 503 
+1. create the class CorsMiddleware
+2. register it under $app->middleware =... in bootstrap/app.php
+3. use this classes wherever used $request ; avoid error Class Request is undefined.
+use Illuminate\Http\Request;
+
+
+

@@ -20,6 +20,19 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->timestamps();
         });
+        Schema::create('students', function (Blueprint $table) {
+            $table->id();
+            $table->string('first_name')->notNullable;
+            $table->string('last_name')->notNullable;
+            $table->string('email')->unique()->notNullable();
+            $table->char('gender')->nullable;
+            $table->string('picturePath')->nullable;
+            $table->tinyInteger('isActive')->nullable;
+            $table->date('dob')->nullable;
+            $table->string('school')->nullable;
+            $table->string('password')->notNullable;
+            $table->timestamps();
+        });
     }
 
     /**
@@ -30,5 +43,6 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('students');
     }
 }

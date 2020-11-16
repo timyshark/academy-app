@@ -1,5 +1,8 @@
 <?php
+use App\Models\User;
 
+
+use Illuminate\Http\Request;
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -13,12 +16,50 @@
 |
 */
 // API route group
-$router->group(['prefix' => 'api'], function () use ($router) {
-    // Matches "/api/register
-    $router->post('register', 'AuthController@register');
-   // Matches "/api/login
-   $router->post('login', 'AuthController@login');
- });
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+
+
+$router->group(['prefix' => 'api'], function () use ($router) 
+{
+//     // Matches "/api/register
+    $router->post('auth/register', 'AuthController@register');
+//    // Matches "/api/login
+    $router->post('auth/login', 'AuthController@login');
+
+//   //------------------------Process CRUD for users: use direct function call ---------------------------
+
+    // $router->get('users', function() {
+    //   return User::all();
+    // });
+    // $router->get('users/{id}', function ($id) {
+    //   return User::find($id);
+    // });
+    // $router->post('users', function(Request $request){
+    //   return User::create($request->all());
+    //   return $user;
+    // });
+    // $router->put('users/{id}', function(Request $request, $id){
+    //                      $user = User::findOrFail($id);
+    //                      $user->update($request->all());
+    //                      return $user;
+    //                    });
+    // $router->delete('users/{id}', function ($id){
+    //     User::find($id)->delete();
+    //     return 204;   
+    //     });
+
+//---------------------------------use Controller --------------------
+
+    $router->get('users', 'UserController@index'); // or could use the notation ['uses' => 'UserController@index']
+    $router->get('users/{id}', 'UserController@show'); //or could be {id} but has to match function call in the Controller , ex, show(User user) or show(int $id)
+    $router->post('users', 'UserController@store');
+    $router->put('users/{id}', 'UserController@update');
+    $router->delete('users/{id}', 'UserController@delete');
+
+
+
+
+
+    $router->get('/', function () use ($router) {
+        return $router->app->version();
+    });
 });
