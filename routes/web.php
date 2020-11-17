@@ -59,15 +59,18 @@ $router->put('users/{id}', 'UserController@update');
 $router->delete('users/{id}', 'UserController@delete');
 
 $router->get('students', 'StudentController@index'); // or could use the notation ['uses' => 'StudentController@index']
-    $router->get('students/{id}', 'StudentController@show'); //or could be {id} but has to match function call in the Controller , ex, show(User user) or show(int $id)
-    $router->post('students', 'StudentController@store');
-    $router->put('students/{id}', 'StudentController@update');
-    $router->delete('students/{id}', 'StudentController@delete');
+$router->get('students/{id}', 'StudentController@show'); //or could be {id} but has to match function call in the Controller , ex, show(User user) or show(int $id)
+$router->post('students', 'StudentController@store');
+$router->put('students/{id}', 'StudentController@update');
+$router->delete('students/{id}', 'StudentController@delete');
 
+$router->get('schools', 'SchoolController@index'); // or could use the notation ['uses' => 'StudentController@index']
+$router->get('schools/{code}', 'SchoolController@show'); //or could be {id} but has to match function call in the Controller , ex, show(User user) or show(int $id)
+$router->post('schools', 'SchoolController@store');
+$router->put('schools/{code}', 'SchoolController@update');
+$router->delete('schools/{code}', 'SchoolController@delete');
 
-
-
-
+ 
     $router->get('/', function () use ($router) {
         return $router->app->version();
     });
