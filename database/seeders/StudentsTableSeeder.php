@@ -28,7 +28,7 @@ class StudentsTableSeeder extends Seeder
             'gender' => 'M',
             'isActive' => 0,
             'dob' => '2020-11-20',
-            'school' => 'UBC',
+            'school' => 'NONE',
         ]);
         for ($i = 0; $i < 50; $i++) {
             $rnd = $faker->randomDigit % 3;
