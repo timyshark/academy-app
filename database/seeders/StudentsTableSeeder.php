@@ -17,13 +17,11 @@ class StudentsTableSeeder extends Seeder
         Student::truncate();
 
         $faker = \Faker\Factory::create();
-        $password = app('hash')->make('academy');
-
+ 
         Student::create([
             'first_name' => 'Timy',
             'last_name' => 'Shark',
             'email' => 'timy.shark@outlook.com',
-            'password' => app('hash')->make('secret'),
             'picturePath' => "assets/images/timy.png",
             'gender' => 'M',
             'isActive' => 0,
@@ -59,7 +57,6 @@ class StudentsTableSeeder extends Seeder
                 'first_name' => $first_name,
                 'last_name' => $last_name,
                 'email' => $faker->unique()->safeEmail,
-                'password' => $password,
                 'picturePath' => "assets/images/$pictureName.png",
                 'gender' => $gender,
                 'isActive' => $rnd,

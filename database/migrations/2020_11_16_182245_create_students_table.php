@@ -23,7 +23,6 @@ class CreateStudentsTable extends Migration
             $table->tinyInteger('isActive')->nullable;
             $table->date('dob')->nullable;
             $table->string('school')->nullable;
-            $table->string('password')->notNullable;
             $table->timestamps();
         });
     }
