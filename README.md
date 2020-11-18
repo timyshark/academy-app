@@ -59,3 +59,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## CORS Solution : https://medium.com/@petehouston/allow-cors-in-laravel-2b574c51d0c1
+1. $ php artisan make:middleware Cors
+2. edit app/Http/Middleware/Cors.php
+3. edit app/Http/kernel.php -> protected $routeMiddleware = [..,'cors' => \App\Http\Middleware\Cors::class, ]
