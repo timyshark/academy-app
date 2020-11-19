@@ -20,9 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register', [UserController::class,'register']);
+
+  Route::prefix('auth')->group(function () {
+    Route::post('register', [UserController::class,'register']);
     Route::post('login', [UserController::class,'authenticate']);
     Route::get('open', [DataController::class,'open']);
+  });
 
     Route::group(['middleware' => ['jwt.verify']], function() {
         Route::get('user', [UserController::class,'getAuthenticatedUser']);
