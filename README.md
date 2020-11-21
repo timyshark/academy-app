@@ -60,7 +60,30 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## CORS Solution : https://medium.com/@petehouston/allow-cors-in-laravel-2b574c51d0c1
+
+# JWT Tymon/jwt-auth
+https://github.com/tymondesigns/jwt-auth
+https://blog.pusher.com/laravel-jwt/
+1. install jwt library 
+$composer require tymon/jwt-auth
+2. config/app.php : providers[] add Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+3. config/app.php : aliases[] add     
+    'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class, 
+    'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+4. generate config/jwt.php 
+$ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+5. generate secret JWT key into .env file
+ $ php artisan jwt:secret
+6. Edit app/Models/User.php
+7. Edit app/Http/Controllers/UsersController.php and DataController.php
+8. Edit app/Http/Middleware/JwtMiddleware.php
+9. register middleware at app/http/kernel.php :  'jwt.verify' => \App\Http\Middleware\JwtMiddleware::class,
+10. Edit /routes/api.php
+
+
+
+# CORS Solution : 
+https://medium.com/@petehouston/allow-cors-in-laravel-2b574c51d0c1
 1. $ php artisan make:middleware Cors
 2. edit app/Http/Middleware/Cors.php
 3. edit app/Http/kernel.php -> protected $routeMiddleware = [..,'cors' => \App\Http\Middleware\Cors::class, ]
