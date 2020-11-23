@@ -51,10 +51,10 @@ use Illuminate\Http\Request;
 
             try {
                 if (! $token = JWTAuth::attempt($credentials)) {
-                    return response()->json(['error' => 'invalid_credentials'], 400);
+                    return response()->json(['message' => 'User credentials are not valid, must provide username or email and password'], 400);
                 }
             } catch (JWTException $e) {
-                return response()->json(['error' => 'could_not_create_token'], 500);
+                return response()->json(['error' => 'Unable to process authentication: ' . $err], 500);
             }
 
             return response()->json(compact('token'));
