@@ -27,8 +27,8 @@ class StudentFactory extends Factory
             'last_name' => $this->faker->lastName,
            'email' => $this->faker->unique()->safeEmail,
            'dob' => $this->faker->date,
-           'gender' => $this->faker->randomDigit,
-           'picturePath' => null,
+           'gender' => 'M',
+           'picturePath' => "/assets/images/male1.png",
            'isActive' => 0,
            'school' => 'NONE'
         ];

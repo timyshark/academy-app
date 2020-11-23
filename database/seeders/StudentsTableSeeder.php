@@ -26,7 +26,7 @@ class StudentsTableSeeder extends Seeder
             'first_name' => 'Timy',
             'last_name' => 'Shark',
             'email' => 'timy.shark@outlook.com',
-            'picturePath' => "assets/images/timy.png",
+            'picturePath' => 'assets/images/timy.png',
             'gender' => 'M',
             'isActive' => 0,
             'dob' => '2020-11-20',
