@@ -40,9 +40,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         Route::put('{id}', [UserController::class,'show']);
         Route::delete('{id}', [UserController::class,'delete']);
 
-        Route::get('level2', function () {
-            // Matches The "/admin/users" URL
-        });
+            // Matches The "/users/query/email" URL
+            Route::get('query/email/{email}', [UserController::class,'showByQueryEmail']);
     });    
     
     

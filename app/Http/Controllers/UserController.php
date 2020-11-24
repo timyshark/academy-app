@@ -168,6 +168,13 @@ use Illuminate\Http\Request;
         return User::find($id); //if id was passed
         //return $user;
     }
+    public function showByQueryEmail(string $email)
+    {
+        $user = User::where('email',$email)->first(); //if id was passed
+        $token = "";
+        return response()->json(compact('user','token'),201);
+    }
+
 
     public function store(Request $request)
     {
